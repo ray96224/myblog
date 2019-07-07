@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ray.myblog.dao.ArticleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ray.myblog.entity.ArticleInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="view_times" jdbcType="INTEGER" property="view_times" />
+    <result column="is_top" jdbcType="BIT" property="is_top" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="modified" jdbcType="TIMESTAMP" property="modified" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, title, summary, view_times, is_top, created, modified
+  </sql>
+  <select id="selectByExample" parameterType="com.ray.myblog.entity.ArticleInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tbl_article_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_article_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tbl_article_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ray.myblog.entity.ArticleInfo" useGeneratedKeys="true">
+    insert into tbl_article_info (title, summary, view_times, 
+      is_top, created, modified
+      )
+    values (#{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{view_times,jdbcType=INTEGER}, 
+      #{is_top,jdbcType=BIT}, #{created,jdbcType=TIMESTAMP}, #{modified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ray.myblog.entity.ArticleInfo" useGeneratedKeys="true">
+    insert into tbl_article_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="view_times != null">
+        view_times,
+      </if>
+      <if test="is_top != null">
+        is_top,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="modified != null">
+        modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="view_times != null">
+        #{view_times,jdbcType=INTEGER},
+      </if>
+      <if test="is_top != null">
+        #{is_top,jdbcType=BIT},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.myblog.entity.ArticleInfo">
+    update tbl_article_info
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="view_times != null">
+        view_times = #{view_times,jdbcType=INTEGER},
+      </if>
+      <if test="is_top != null">
+        is_top = #{is_top,jdbcType=BIT},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null">
+        modified = #{modified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ray.myblog.entity.ArticleInfo">
+    update tbl_article_info
+    set title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      view_times = #{view_times,jdbcType=INTEGER},
+      is_top = #{is_top,jdbcType=BIT},
+      created = #{created,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
