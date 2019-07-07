@@ -1,0 +1,557 @@
+2019-07-07 22:00:06.749  INFO 29036 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 29036 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:00:06.751  INFO 29036 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:00:08.087  INFO 29036 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:00:09.096  INFO 29036 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:00:09.889  INFO 29036 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:00:10.409  INFO 29036 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 4.048 seconds (JVM running for 4.827)
+2019-07-07 22:00:10.668 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:00:10.719 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第2篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:00:10.728 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:10.743 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:00:10.745 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 2(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:00:10.750 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:10.753 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:00:10.754 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 2(Long), c://假装是URL(String)
+2019-07-07 22:00:10.758 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:10.769 DEBUG 29036 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:00:10.794 DEBUG 29036 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第2个分类(String)
+2019-07-07 22:00:10.802 DEBUG 29036 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:00:10.805 DEBUG 29036 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:00:10.805 DEBUG 29036 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第2个分类(String), true(Boolean)
+2019-07-07 22:00:10.809 DEBUG 29036 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:10.810 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:00:10.811 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 2(Long), 3(Long)
+2019-07-07 22:00:10.817 DEBUG 29036 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:10.826  INFO 29036 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:00:10.832  INFO 29036 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:00:39.703  INFO 16448 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 16448 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:00:39.706  INFO 16448 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:00:40.805  INFO 16448 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:00:41.719  INFO 16448 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:00:42.484  INFO 16448 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:00:42.980  INFO 16448 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.675 seconds (JVM running for 4.434)
+2019-07-07 22:00:43.195 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:00:43.248 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第3篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:00:43.253 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:43.263 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:00:43.264 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 3(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:00:43.268 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:43.270 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:00:43.271 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 3(Long), c://假装是URL(String)
+2019-07-07 22:00:43.275 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:43.289 DEBUG 16448 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:00:43.315 DEBUG 16448 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第一个分类(String)
+2019-07-07 22:00:43.325 DEBUG 16448 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:00:43.327 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:00:43.328 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 3(Long), 2(Long)
+2019-07-07 22:00:43.332 DEBUG 16448 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:00:43.338  INFO 16448 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:00:43.342  INFO 16448 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:01:57.705  INFO 23696 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 23696 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:01:57.707  INFO 23696 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:01:59.000  INFO 23696 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:01:59.983  INFO 23696 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:02:00.764  INFO 23696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:02:01.261  INFO 23696 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.922 seconds (JVM running for 4.659)
+2019-07-07 22:02:01.465 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:02:01.513 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第4篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:02:01.525 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:02:01.539 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:02:01.542 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 4(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:02:01.550 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:02:01.552 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:02:01.553 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 4(Long), c://假装是URL(String)
+2019-07-07 22:02:01.564 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:02:01.576 DEBUG 23696 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:02:01.596 DEBUG 23696 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第3个分类(String)
+2019-07-07 22:02:01.604 DEBUG 23696 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:02:01.607 DEBUG 23696 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:02:01.608 DEBUG 23696 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第3个分类(String), true(Boolean)
+2019-07-07 22:02:01.619 DEBUG 23696 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:02:01.621 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:02:01.622 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 4(Long), 4(Long)
+2019-07-07 22:02:01.634 DEBUG 23696 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:02:01.642  INFO 23696 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:02:01.647  INFO 23696 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:02:58.737  INFO 25556 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 25556 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:02:58.741  INFO 25556 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:02:59.867  INFO 25556 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:03:00.789  INFO 25556 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:03:01.566  INFO 25556 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:03:02.051  INFO 25556 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.689 seconds (JVM running for 4.458)
+2019-07-07 22:03:02.253 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:03:02.308 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第5篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:03:02.316 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:02.327 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:03:02.329 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 5(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:03:02.333 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:02.336 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:03:02.337 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 5(Long), c://假装是URL(String)
+2019-07-07 22:03:02.342 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:02.353 DEBUG 25556 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:03:02.377 DEBUG 25556 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第3个分类(String)
+2019-07-07 22:03:02.386 DEBUG 25556 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:03:02.389 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:03:02.390 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 5(Long), 4(Long)
+2019-07-07 22:03:02.395 DEBUG 25556 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:02.403  INFO 25556 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:03:02.407  INFO 25556 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:03:25.521  INFO 12024 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 12024 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:03:25.523  INFO 12024 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:03:26.703  INFO 12024 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:03:27.596  INFO 12024 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:03:28.343  INFO 12024 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:03:28.794  INFO 12024 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.677 seconds (JVM running for 4.446)
+2019-07-07 22:03:29.008 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:03:29.057 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第6篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:03:29.067 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:29.077 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:03:29.079 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 6(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:03:29.085 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:29.087 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:03:29.088 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 6(Long), c://假装是URL(String)
+2019-07-07 22:03:29.092 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:29.102 DEBUG 12024 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:03:29.120 DEBUG 12024 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第2个分类(String)
+2019-07-07 22:03:29.129 DEBUG 12024 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:03:29.133 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:03:29.134 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 6(Long), 3(Long)
+2019-07-07 22:03:29.139 DEBUG 12024 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:03:29.146  INFO 12024 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:03:29.150  INFO 12024 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:07:17.237  INFO 23100 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 23100 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:07:17.238  INFO 23100 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:07:18.325  INFO 23100 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:07:19.254  INFO 23100 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:07:19.997  INFO 23100 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:07:20.459  INFO 23100 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.621 seconds (JVM running for 4.415)
+2019-07-07 22:07:20.693 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.744 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第7篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.752 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.763 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.764 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 7(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.771 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.773 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:20.774 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 7(Long), c://假装是URL(String)
+2019-07-07 22:07:20.780 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.791 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:20.814 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第4个分类(String)
+2019-07-07 22:07:20.825 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:20.829 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:20.830 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第4个分类(String), true(Boolean)
+2019-07-07 22:07:20.836 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.838 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:20.839 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 7(Long), 5(Long)
+2019-07-07 22:07:20.844 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.845 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.846 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第8篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.851 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.852 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.852 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 8(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.857 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.859 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:20.859 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 8(Long), c://假装是URL(String)
+2019-07-07 22:07:20.863 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.864 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:20.865 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第4个分类(String)
+2019-07-07 22:07:20.867 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:20.868 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:20.869 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 8(Long), 5(Long)
+2019-07-07 22:07:20.873 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.874 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.875 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第9篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.879 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.880 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.881 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 9(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.884 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.885 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:20.886 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 9(Long), c://假装是URL(String)
+2019-07-07 22:07:20.889 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.891 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:20.891 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第5个分类(String)
+2019-07-07 22:07:20.893 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:20.894 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:20.894 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第5个分类(String), true(Boolean)
+2019-07-07 22:07:20.901 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.903 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:20.904 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 9(Long), 6(Long)
+2019-07-07 22:07:20.910 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.912 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.912 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第10篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.918 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.920 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.921 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 10(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.927 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.928 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:20.929 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 10(Long), c://假装是URL(String)
+2019-07-07 22:07:20.935 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.937 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:20.937 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第5个分类(String)
+2019-07-07 22:07:20.941 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:20.942 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:20.942 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 10(Long), 6(Long)
+2019-07-07 22:07:20.949 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.950 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.950 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第11篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.956 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.958 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.958 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 11(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.965 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.967 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:20.967 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 11(Long), c://假装是URL(String)
+2019-07-07 22:07:20.973 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.975 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:20.975 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第5个分类(String)
+2019-07-07 22:07:20.977 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:20.978 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:20.979 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 11(Long), 6(Long)
+2019-07-07 22:07:20.985 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.987 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:20.987 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第12篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:20.993 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:20.994 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:20.995 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 12(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:20.998 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.000 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.001 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 12(Long), c://假装是URL(String)
+2019-07-07 22:07:21.004 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.005 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.005 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第6个分类(String)
+2019-07-07 22:07:21.006 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.007 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.007 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第6个分类(String), true(Boolean)
+2019-07-07 22:07:21.010 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.012 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.012 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 12(Long), 7(Long)
+2019-07-07 22:07:21.015 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.017 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.017 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第13篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.021 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.022 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.022 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 13(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.026 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.027 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.027 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 13(Long), c://假装是URL(String)
+2019-07-07 22:07:21.031 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.032 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.033 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第6个分类(String)
+2019-07-07 22:07:21.034 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.035 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.036 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 13(Long), 7(Long)
+2019-07-07 22:07:21.039 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.041 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.041 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第14篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.045 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.046 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.046 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 14(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.052 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.054 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.055 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 14(Long), c://假装是URL(String)
+2019-07-07 22:07:21.061 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.062 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.063 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第6个分类(String)
+2019-07-07 22:07:21.065 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.066 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.067 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 14(Long), 7(Long)
+2019-07-07 22:07:21.073 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.074 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.074 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第15篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.079 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.080 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.081 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 15(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.088 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.089 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.089 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 15(Long), c://假装是URL(String)
+2019-07-07 22:07:21.096 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.097 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.098 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第7个分类(String)
+2019-07-07 22:07:21.099 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.100 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.100 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第7个分类(String), true(Boolean)
+2019-07-07 22:07:21.106 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.107 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.108 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 15(Long), 8(Long)
+2019-07-07 22:07:21.114 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.115 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.115 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第16篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.123 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.124 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.124 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 16(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.135 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.136 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.136 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 16(Long), c://假装是URL(String)
+2019-07-07 22:07:21.147 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.149 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.149 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第7个分类(String)
+2019-07-07 22:07:21.151 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.152 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.152 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 16(Long), 8(Long)
+2019-07-07 22:07:21.158 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.159 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.160 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第17篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.168 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.169 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.169 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 17(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.175 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.177 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.177 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 17(Long), c://假装是URL(String)
+2019-07-07 22:07:21.183 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.184 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.185 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第7个分类(String)
+2019-07-07 22:07:21.186 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.186 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.187 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 17(Long), 8(Long)
+2019-07-07 22:07:21.193 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.194 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.194 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第18篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.201 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.202 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.202 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 18(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.209 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.210 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.211 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 18(Long), c://假装是URL(String)
+2019-07-07 22:07:21.217 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.218 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.218 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第8个分类(String)
+2019-07-07 22:07:21.219 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.220 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.220 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第8个分类(String), true(Boolean)
+2019-07-07 22:07:21.226 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.227 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.228 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 18(Long), 9(Long)
+2019-07-07 22:07:21.232 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.232 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.233 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第19篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.236 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.237 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.237 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 19(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.241 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.241 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.242 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 19(Long), c://假装是URL(String)
+2019-07-07 22:07:21.246 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.247 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.247 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第8个分类(String)
+2019-07-07 22:07:21.249 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.250 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.250 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 19(Long), 9(Long)
+2019-07-07 22:07:21.254 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.255 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.255 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第20篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.258 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.259 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.260 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 20(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.263 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.264 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.264 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 20(Long), c://假装是URL(String)
+2019-07-07 22:07:21.268 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.269 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.269 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第8个分类(String)
+2019-07-07 22:07:21.270 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.270 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.270 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 20(Long), 9(Long)
+2019-07-07 22:07:21.273 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.274 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.274 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第21篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.280 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.281 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.281 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 21(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.288 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.288 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.289 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 21(Long), c://假装是URL(String)
+2019-07-07 22:07:21.296 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.297 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.298 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第9个分类(String)
+2019-07-07 22:07:21.300 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.301 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.301 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第9个分类(String), true(Boolean)
+2019-07-07 22:07:21.307 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.308 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.308 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 21(Long), 10(Long)
+2019-07-07 22:07:21.316 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.317 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.317 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第22篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.324 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.325 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.325 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 22(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.332 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.333 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.334 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 22(Long), c://假装是URL(String)
+2019-07-07 22:07:21.342 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.345 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.346 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第9个分类(String)
+2019-07-07 22:07:21.348 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.349 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.349 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 22(Long), 10(Long)
+2019-07-07 22:07:21.355 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.356 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.357 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第23篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.363 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.364 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.364 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 23(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.370 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.371 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.371 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 23(Long), c://假装是URL(String)
+2019-07-07 22:07:21.374 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.375 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.375 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第9个分类(String)
+2019-07-07 22:07:21.376 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.377 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.377 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 23(Long), 10(Long)
+2019-07-07 22:07:21.380 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.381 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.381 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第24篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.384 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.385 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.385 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 24(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.389 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.390 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.390 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 24(Long), c://假装是URL(String)
+2019-07-07 22:07:21.394 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.395 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.395 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第10个分类(String)
+2019-07-07 22:07:21.396 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.396 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.396 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第10个分类(String), true(Boolean)
+2019-07-07 22:07:21.400 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.401 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.401 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 24(Long), 11(Long)
+2019-07-07 22:07:21.404 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.404 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.405 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第25篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.408 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.409 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.409 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 25(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.413 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.413 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.413 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 25(Long), c://假装是URL(String)
+2019-07-07 22:07:21.417 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.417 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.418 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第10个分类(String)
+2019-07-07 22:07:21.419 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.419 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.419 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 25(Long), 11(Long)
+2019-07-07 22:07:21.425 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.425 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.426 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第26篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.433 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.433 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.433 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 26(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.441 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.441 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.442 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 26(Long), c://假装是URL(String)
+2019-07-07 22:07:21.450 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.451 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.451 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第10个分类(String)
+2019-07-07 22:07:21.452 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.453 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.453 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 26(Long), 11(Long)
+2019-07-07 22:07:21.459 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.460 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.460 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第27篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.467 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.468 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.468 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 27(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.473 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.474 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.474 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 27(Long), c://假装是URL(String)
+2019-07-07 22:07:21.481 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.482 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.482 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第11个分类(String)
+2019-07-07 22:07:21.483 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 0
+2019-07-07 22:07:21.483 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==>  Preparing: insert into tbl_category_info ( name, is_effective ) values ( ?, ? ) 
+2019-07-07 22:07:21.484 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : ==> Parameters: 第11个分类(String), true(Boolean)
+2019-07-07 22:07:21.490 DEBUG 23100 --- [main] c.r.m.d.C.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.490 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.490 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 27(Long), 12(Long)
+2019-07-07 22:07:21.496 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.497 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.497 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第28篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.501 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.502 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.502 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 28(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.506 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.507 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.507 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 28(Long), c://假装是URL(String)
+2019-07-07 22:07:21.511 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.512 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.512 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第11个分类(String)
+2019-07-07 22:07:21.513 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.514 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.514 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 28(Long), 12(Long)
+2019-07-07 22:07:21.518 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.519 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_info ( title, summary, is_top ) values ( ?, ?, ? ) 
+2019-07-07 22:07:21.519 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 我是第29篇文章(String), 概要(String), false(Boolean)
+2019-07-07 22:07:21.523 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.524 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_content ( article_id, content ) values ( ?, ? ) 
+2019-07-07 22:07:21.524 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 29(Long), 文章内容，反正就是很长很长很长很长很长很长很长很长很长(String)
+2019-07-07 22:07:21.527 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.528 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_image ( article_id, image_url ) values ( ?, ? ) 
+2019-07-07 22:07:21.528 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 29(Long), c://假装是URL(String)
+2019-07-07 22:07:21.532 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.533 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, name, is_effective, created, modified from tbl_category_info WHERE ( name = ? ) 
+2019-07-07 22:07:21.534 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : ==> Parameters: 第11个分类(String)
+2019-07-07 22:07:21.535 DEBUG 23100 --- [main] c.r.m.d.C.selectByExample                : <==      Total: 1
+2019-07-07 22:07:21.535 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==>  Preparing: insert into tbl_article_category ( article_id, category_id ) values ( ?, ? ) 
+2019-07-07 22:07:21.536 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : ==> Parameters: 29(Long), 12(Long)
+2019-07-07 22:07:21.539 DEBUG 23100 --- [main] c.r.m.d.A.insertSelective                : <==    Updates: 1
+2019-07-07 22:07:21.546  INFO 23100 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:07:21.550  INFO 23100 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-07-07 22:45:13.065  INFO 26196 --- [main] com.ray.myblog.MyblogApplicationTests    : Starting MyblogApplicationTests on DESKTOP-QFAQUJF with PID 26196 (started by ray in D:\Projects\IdeaProjects\myblog)
+2019-07-07 22:45:13.067  INFO 26196 --- [main] com.ray.myblog.MyblogApplicationTests    : No active profile set, falling back to default profiles: default
+2019-07-07 22:45:14.385  INFO 26196 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-07-07 22:45:15.254  INFO 26196 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-07-07 22:45:15.951  INFO 26196 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:45:16.405  INFO 26196 --- [main] com.ray.myblog.MyblogApplicationTests    : Started MyblogApplicationTests in 3.683 seconds (JVM running for 4.522)
+2019-07-07 22:45:16.664 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM tbl_article_info 
+2019-07-07 22:45:16.694 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample_COUNT          : ==> Parameters: 
+2019-07-07 22:45:16.713 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample_COUNT          : <==      Total: 1
+2019-07-07 22:45:16.715 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, title, summary, view_times, is_top, created, modified from tbl_article_info LIMIT ?, ? 
+2019-07-07 22:45:16.718 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 5(Integer), 5(Integer)
+2019-07-07 22:45:16.721 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 5
+2019-07-07 22:45:16.730 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, image_url, created, modified from tbl_article_image WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.746 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 6(Long)
+2019-07-07 22:45:16.748 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.751 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, category_id, created, modified from tbl_article_category WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.752 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 6(Long)
+2019-07-07 22:45:16.754 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.754 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==>  Preparing: select id, name, is_effective, created, modified from tbl_category_info where id = ? 
+2019-07-07 22:45:16.756 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==> Parameters: 3(Long)
+2019-07-07 22:45:16.757 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : <==      Total: 1
+2019-07-07 22:45:16.758 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, image_url, created, modified from tbl_article_image WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.759 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 7(Long)
+2019-07-07 22:45:16.760 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.761 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, category_id, created, modified from tbl_article_category WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.761 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 7(Long)
+2019-07-07 22:45:16.763 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.763 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==>  Preparing: select id, name, is_effective, created, modified from tbl_category_info where id = ? 
+2019-07-07 22:45:16.763 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==> Parameters: 5(Long)
+2019-07-07 22:45:16.764 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : <==      Total: 1
+2019-07-07 22:45:16.765 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, image_url, created, modified from tbl_article_image WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.765 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 8(Long)
+2019-07-07 22:45:16.766 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.767 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, category_id, created, modified from tbl_article_category WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.768 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 8(Long)
+2019-07-07 22:45:16.769 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.769 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==>  Preparing: select id, name, is_effective, created, modified from tbl_category_info where id = ? 
+2019-07-07 22:45:16.770 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==> Parameters: 5(Long)
+2019-07-07 22:45:16.771 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : <==      Total: 1
+2019-07-07 22:45:16.772 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, image_url, created, modified from tbl_article_image WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.772 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 9(Long)
+2019-07-07 22:45:16.773 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.774 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, category_id, created, modified from tbl_article_category WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.774 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 9(Long)
+2019-07-07 22:45:16.775 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.775 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==>  Preparing: select id, name, is_effective, created, modified from tbl_category_info where id = ? 
+2019-07-07 22:45:16.775 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==> Parameters: 6(Long)
+2019-07-07 22:45:16.776 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : <==      Total: 1
+2019-07-07 22:45:16.777 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, image_url, created, modified from tbl_article_image WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.777 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 10(Long)
+2019-07-07 22:45:16.778 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.779 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==>  Preparing: select 'false' as QUERYID, id, article_id, category_id, created, modified from tbl_article_category WHERE ( article_id = ? ) 
+2019-07-07 22:45:16.780 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : ==> Parameters: 10(Long)
+2019-07-07 22:45:16.781 DEBUG 26196 --- [main] c.r.m.d.A.selectByExample                : <==      Total: 1
+2019-07-07 22:45:16.782 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==>  Preparing: select id, name, is_effective, created, modified from tbl_category_info where id = ? 
+2019-07-07 22:45:16.783 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : ==> Parameters: 6(Long)
+2019-07-07 22:45:16.784 DEBUG 26196 --- [main] c.r.m.d.C.selectByPrimaryKey             : <==      Total: 1
+2019-07-07 22:45:16.790  INFO 26196 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-07 22:45:16.794  INFO 26196 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

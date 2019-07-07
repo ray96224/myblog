@@ -6,30 +6,18 @@ import java.util.Date;
  * @author: ray
  * @create: 2019/7/7
  */
-public class ArticleDto {
+public class ArticleSimpleDto {
 
-    //基本 ArticleInfo
     private Long id;
     private String title;
-    private String summary;
-    private Integer viewTimes;
     private Boolean isTop;
     private Date created;
 
-    //内容 ArticleContent
-    private Long contentId;
-    private String content;
-
-    //图片 ArticleImage
     private Long imageId;
     private String imageUrl;
 
-    //分类 CategoryInfo
     private Long categoryId;
     private String categoryName;
-
-    //关联 ArticleCategory
-    private Long relationId;
 
     public Long getId() {
         return id;
@@ -47,22 +35,6 @@ public class ArticleDto {
         this.title = title;
     }
 
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public Integer getViewTimes() {
-        return viewTimes;
-    }
-
-    public void setViewTimes(Integer viewTimes) {
-        this.viewTimes = viewTimes;
-    }
-
     public Boolean getTop() {
         return isTop;
     }
@@ -77,22 +49,6 @@ public class ArticleDto {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public Long getContentId() {
-        return contentId;
-    }
-
-    public void setContentId(Long contentId) {
-        this.contentId = contentId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public Long getImageId() {
@@ -127,30 +83,17 @@ public class ArticleDto {
         this.categoryName = categoryName;
     }
 
-    public Long getRelationId() {
-        return relationId;
-    }
-
-    public void setRelationId(Long relationId) {
-        this.relationId = relationId;
-    }
-
     @Override
     public String toString() {
-        return "ArticleDto{" +
+        return "ArticleSimpleDto{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", summary='" + summary + '\'' +
-                ", viewTimes=" + viewTimes +
                 ", isTop=" + isTop +
                 ", created=" + created +
-                ", contentId=" + contentId +
-                ", content='" + content + '\'' +
                 ", imageId=" + imageId +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", categoryId=" + categoryId +
-                ", name='" + categoryName + '\'' +
-                ", relationId=" + relationId +
+                ", categoryName='" + categoryName + '\'' +
                 '}';
     }
 }

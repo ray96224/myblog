@@ -2,6 +2,8 @@ package com.ray.myblog.dao;
 
 import com.ray.myblog.entity.ArticleCategory;
 import com.ray.myblog.entity.ArticleCategoryExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 public interface ArticleCategoryMapper {
