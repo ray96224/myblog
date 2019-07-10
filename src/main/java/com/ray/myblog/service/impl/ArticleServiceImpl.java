@@ -1,6 +1,7 @@
 package com.ray.myblog.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dao.*;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.ArticleSimpleDto;
@@ -9,7 +10,6 @@ import com.ray.myblog.service.ArticleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +82,34 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ArticleDto getOneById(Long id) {
-        return null;
+        ArticleDto articleDto = new ArticleDto();
+        //articleInfo
+        ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(id);
+        articleDto.setId(articleInfo.getId());
+        articleDto.setTitle(articleInfo.getTitle());
+        articleDto.setSummary(articleInfo.getSummary());
+        articleDto.setViewTimes(articleInfo.getViewTimes());
+        articleDto.setTop(articleInfo.getIsTop());
+        articleDto.setCreated(articleInfo.getCreated());
+        //articleContent
+        ArticleContentExample articleContentExample = new ArticleContentExample();
+        articleContentExample.or().andArticleIdEqualTo(articleInfo.getId());
+        List<ArticleContent> articleContents = articleContentMapper.selectByExampleWithBLOBs(articleContentExample);
+        ArticleContent articleContent = articleContents.get(0);
+        articleDto.setContentId(articleContent.getId());
+        articleDto.setContent(articleContent.getContent());
+        //ArticleImage
+        ArticleImage imageByArticleId = getImageByArticleId(articleInfo.getId());
+        articleDto.setImageId(imageByArticleId.getId());
+        articleDto.setImageUrl(imageByArticleId.getImageUrl());
+        //CategoryInfo
+        ArticleCategory articleCategoryByArticleId = getArticleCategoryByArticleId(articleInfo.getId());
+        articleDto.setRelationId(articleCategoryByArticleId.getId());
+        CategoryInfo categoryInfo = categoryInfoMapper.selectByPrimaryKey(articleCategoryByArticleId.getCategoryId());
+        articleDto.setCategoryId(categoryInfo.getId());
+        articleDto.setCategoryName(categoryInfo.getName());
+
+        return articleDto;
     }
 
     @Override
@@ -91,32 +118,55 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleSimpleDto> list(Integer page) {
+    public PageInfo list(Integer page, Integer pageSize) {
         List<ArticleSimpleDto> list = new ArrayList<>();
-        PageHelper.startPage(page,5);
+        PageHelper.startPage(page,pageSize);
         List<ArticleInfo> articleInfos = articleInfoMapper.selectByExample(null);
+        PageInfo pageInfo = new PageInfo(articleInfos);
         for (int i = 0; i < articleInfos.size(); i++ ){
             ArticleSimpleDto articleSimpleDto = new ArticleSimpleDto();
+            //articleInfo
             ArticleInfo articleInfo = articleInfos.get(i);
             articleSimpleDto.setId(articleInfo.getId());
             articleSimpleDto.setTitle(articleInfo.getTitle());
             articleSimpleDto.setTop(articleInfo.getIsTop());
             articleSimpleDto.setCreated(articleInfo.getCreated());
-
-            ArticleImageExample articleImageExample = new ArticleImageExample();
-            articleImageExample.or().andArticleIdEqualTo(articleInfo.getId());
-            List<ArticleImage> articleImages = articleImageMapper.selectByExample(articleImageExample);
-            articleSimpleDto.setImageId(articleImages.get(0).getId());
-            articleSimpleDto.setImageUrl(articleImages.get(0).getImageUrl());
-
-            ArticleCategoryExample articleCategoryExample = new ArticleCategoryExample();
-            articleCategoryExample.or().andArticleIdEqualTo(articleInfo.getId());
-            List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(articleCategoryExample);
-            CategoryInfo categoryInfo = categoryInfoMapper.selectByPrimaryKey(articleCategories.get(0).getCategoryId());
+            //articleImage
+            ArticleImage imageByArticleId = getImageByArticleId(articleInfo.getId());
+            articleSimpleDto.setImageId(imageByArticleId.getId());
+            articleSimpleDto.setImageUrl(imageByArticleId.getImageUrl());
+            //CategoryInfo
+            ArticleCategory articleCategoryByArticleId = getArticleCategoryByArticleId(articleInfo.getId());
+            CategoryInfo categoryInfo = categoryInfoMapper.selectByPrimaryKey(articleCategoryByArticleId.getCategoryId());
             articleSimpleDto.setCategoryId(categoryInfo.getId());
             articleSimpleDto.setCategoryName(categoryInfo.getName());
             list.add(articleSimpleDto);
         }
-        return list;
+        pageInfo.setList(list);
+        return pageInfo;
+    }
+
+    /**
+     * 获取图片信息
+     * @param articleId
+     * @return
+     */
+    public ArticleImage getImageByArticleId(Long articleId){
+        ArticleImageExample articleImageExample = new ArticleImageExample();
+        articleImageExample.or().andArticleIdEqualTo(articleId);
+        List<ArticleImage> articleImages = articleImageMapper.selectByExample(articleImageExample);
+        return articleImages.get(0);
+    }
+
+    /**
+     * 获取关联信息
+     * @param articleId
+     * @return
+     */
+    public ArticleCategory getArticleCategoryByArticleId(Long articleId){
+        ArticleCategoryExample articleCategoryExample = new ArticleCategoryExample();
+        articleCategoryExample.or().andArticleIdEqualTo(articleId);
+        List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(articleCategoryExample);
+        return  articleCategories.get(0);
     }
 }

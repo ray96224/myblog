@@ -1,5 +1,6 @@
 package com.ray.myblog;
 
+import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.ArticleSimpleDto;
 import com.ray.myblog.service.ArticleService;
@@ -22,25 +23,11 @@ public class MyblogApplicationTests {
 
     @Test
     public void contextLoads() {
-        for (int i = 7; i < 30; i++){
-            ArticleDto articleDto = new ArticleDto();
-            articleDto.setTitle("我是第"+i+"篇文章");
-            articleDto.setSummary("概要");
-            articleDto.setTop(false);
-            articleDto.setContent("文章内容，反正就是很长很长很长很长很长很长很长很长很长");
-            articleDto.setImageUrl("c://假装是URL");
-            articleDto.setCategoryName("第"+ (i/3 + 2) +"个分类");
-            articleService.addArticle(articleDto);
-        }
 
     }
 
     @Test
     public void testQuery(){
-        List<ArticleSimpleDto> list = articleService.list(2);
-        for (ArticleSimpleDto dto : list){
-            System.out.println(dto);
-        }
     }
 
 }

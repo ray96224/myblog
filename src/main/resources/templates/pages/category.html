@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <link rel="stylesheet" href="css/mystyle.css" th:href="@{/asserts/css/mystyle.css}">
+    <title>Title</title>
+</head>
+<body background="/images/bg-img01.jpg" th:background="@{/theme/bg-img01.jpg}">
+<div class="top bg-dark"></div>
+<div class="container">
+
+    <div th:replace="pages/nav-part :: #nav_top"></div>
+
+    <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+
+            <div th:include="pages/aside-part :: sidebar"></div>
+
+        </div>
+        <div id="right" class="col-lg-9">
+            <div class="right-part">
+                <div style="height: 1px"></div>
+                <br>
+                <div style="margin-left: 15px">
+                    <h2 class="h2">归档</h2>
+                </div>
+                <div>
+                    <ul id="list" class="list-group list-group-flush">
+                        <!--                        <a class="list-group-item list-group-item-action" th:each="article : ${pageInfo.list}" th:text="${article.title}">Cras justo odio</a>-->
+                    </ul>
+                    <br>
+                    <nav aria-label="Page navigation example">
+                        <ul id="page" class="pagination justify-content-center">
+                            <!--                            <li class="page-item disabled">-->
+                            <!--                                <a class="page-link" href="#" tabindex="-1">Previous</a>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                            <!--                            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                            <!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                            <!--                            <li class="page-item"><a class="page-link" href="#">4</a></li>-->
+                            <!--                            <li class="page-item"><a class="page-link" href="#">5</a></li>-->
+                            <!--                            <li class="page-item">-->
+                            <!--                                <a class="page-link" href="#">Next</a>-->
+                            <!--                            </li>-->
+                        </ul>
+                    </nav>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // $(function () {
+    //     $("#mdtxt").load("markdown.html");
+    // })
+
+    /*
+    小屏幕适配临时解决方案
+     */
+    if ($(window).width() < 768) {
+        $("body").attr("background","white");
+        $("#nav_top").addClass("row");
+        $("#right").addClass("right-for-phone");
+        $("#right div").addClass("right-div-for-phone");
+    }
+
+    //项目路径
+    var basePath = [[${#request.getContextPath()}]];
+
+    $(function () {
+            getList(1);
+        }
+    )
+
+</script>
+</body>
+</html>

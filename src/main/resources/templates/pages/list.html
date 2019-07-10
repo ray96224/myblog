@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <link rel="stylesheet" href="css/mystyle.css" th:href="@{/asserts/css/mystyle.css}">
+    <title>Title</title>
+</head>
+<body background="/images/bg-img01.jpg" th:background="@{/theme/bg-img01.jpg}">
+<div class="top bg-dark"></div>
+<div class="container">
+
+    <div th:replace="pages/nav-part :: #nav_top"></div>
+
+    <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+
+            <div th:include="pages/aside-part :: sidebar"></div>
+
+        </div>
+        <div id="right" class="col-lg-9">
+            <div class="right-part">
+                <div style="height: 1px"></div>
+                <br>
+                <div style="margin-left: 15px">
+                    <h2 class="h2">归档</h2>
+                </div>
+                <div>
+                    <ul id="list" class="list-group list-group-flush">
+<!--                        <a class="list-group-item list-group-item-action" th:each="article : ${pageInfo.list}" th:text="${article.title}">Cras justo odio</a>-->
+                    </ul>
+                    <br>
+                    <nav aria-label="Page navigation example">
+                        <ul id="page" class="pagination justify-content-center">
+<!--                            <li class="page-item disabled">-->
+<!--                                <a class="page-link" href="#" tabindex="-1">Previous</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">4</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">5</a></li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link" href="#">Next</a>-->
+<!--                            </li>-->
+                        </ul>
+                    </nav>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // $(function () {
+    //     $("#mdtxt").load("markdown.html");
+    // })
+
+    /*
+    小屏幕适配临时解决方案
+     */
+    if ($(window).width() < 768) {
+        $("body").attr("background","white");
+        $("#nav_top").addClass("row");
+        $("#right").addClass("right-for-phone");
+        $("#right div").addClass("right-div-for-phone");
+    }
+
+    //项目路径
+    var basePath = [[${#request.getContextPath()}]];
+
+    $(function () {
+        getList(1);
+        }
+    )
+
+    //AJAX构建文章列表
+    function getList(page) {
+        $("#list").empty();
+        $("#page").empty();
+        $.getJSON(basePath+"/list-title/"+page, function (data) {
+
+            //条目
+            $.each(data.list, function (i,n) {
+                var titleSpan = $("<span></span>").text(n.title);
+                var date = new Date(n.created);
+                var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+                var timeSpan = $("<span style='float: right;'></span>").text(dateString);
+                var item = $("<a></a>").addClass("list-group-item list-group-item-action")
+                    .append(titleSpan)
+                    .append(timeSpan).attr("href",basePath+"/article/"+n.id);
+                $("#list").append(item);
+            });
+
+            /*
+            构建分页条
+             */
+            //上一页
+            var previousLi = $("<li></li>").addClass("page-item");
+            if (data.pageNum == 1){
+                previousLi.addClass("disabled");
+            }else {
+                previousLi.click(function () {
+                    getList(data.pageNum-1);
+                })
+            }
+            var previousSpan = $("<span></span>").addClass("page-link").text("上一页");
+            $("#page").append(previousLi.append(previousSpan));
+            //页码们
+            $.each(data.navigatepageNums,function (i,n) {
+                var li = $("<li></li>").addClass("page-item");
+                if (data.pageNum == n){
+                    li.addClass("disabled active");
+                }else {
+                    li.click(function () {
+                        getList(n);
+                    })
+                }
+                var span = $("<span></span>").addClass("page-link").text(n);
+                $("#page").append(li.append(span));
+            })
+            //下一页
+            var nextLi = $("<li></li>").addClass("page-item");
+            if (data.pageNum == data.pages){
+                nextLi.addClass("disabled");
+            }else {
+                nextLi.click(function () {
+                    getList(data.pageNum+1);
+                })
+            }
+            var nextSpan = $("<span></span>").addClass("page-link").text("下一页");
+            $("#page").append(nextLi.append(nextSpan));
+
+        })
+
+    }
+</script>
+</body>
+</html>

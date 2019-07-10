@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <link rel="stylesheet" href="css/mystyle.css" th:href="@{/asserts/css/mystyle.css}">
+    <title>Title</title>
+</head>
+<body background="/images/bg-img01.jpg" th:background="@{/theme/bg-img01.jpg}">
+<div class="top bg-dark"></div>
+<div class="container">
+
+    <div th:insert="pages/nav-part :: #nav_top"></div>
+
+    <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+
+            <div th:insert="pages/aside-part :: sidebar">
+
+            </div>
+
+        </div>
+        <div id="right" class="col-lg-9">
+            <div class="right-part">
+                <div style="height: 1px"></div>
+                <section class="article-item" th:each="article : ${pageInfo.list}">
+                    <header>
+                        <p class="h3 text-center article-title" th:text="${article.title}">标题</p>
+                        <div class="article-detail text-center">
+                            <span th:text="时间：+${#dates.format(article.created, 'yyyy-MM-dd')}">时间：[时间]</span>
+                            &nbsp&nbsp
+                            <span th:text="分类：+${article.categoryName}">分类：[分类]</span>
+                        </div>
+                        <br>
+                    </header>
+                    <div class="text-center">
+                        <p>
+                            <img class="img-fluid img-thumbnail" alt="Responsive image" src="img/守望先锋.jpg" th:src="@{/images/}+${article.imageUrl}">
+                            <br>
+                            <br>
+                        </p>
+                        <p>
+                            <a class="btn btn-outline-dark btn-sm" href="#" th:href="@{/article/}+${article.id}">阅读本文>></a>
+                        </p>
+                    </div>
+                    <footer><hr></footer>
+                </section>
+                <div class="text-center">
+                    <a th:href="@{/(pageNum=${pageInfo.pageNum}-1)}" th:class="${pageInfo.pageNum==1}?'btn btn-light disabled':'btn btn-light'">上一页</a>
+                    <a th:href="@{/(pageNum=${pageInfo.pageNum}+1)}" th:class="${pageInfo.pageNum==pageInfo.pages}?'btn btn-light disabled':'btn btn-light'">下一页</a>
+                </div>
+                <br>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+<script type="text/javascript">
+    // $(function () {
+    //     $("#mdtxt").load("markdown.html");
+    // })
+
+    /*
+    小屏幕适配临时解决方案
+     */
+    if ($(window).width() < 768) {
+        $("body").attr("background","white");
+        $("#nav_top").addClass("row");
+        $("#right").addClass("right-for-phone");
+        $("#right div").addClass("right-div-for-phone");
+    }
+
+</script>
+</body>
+</html>

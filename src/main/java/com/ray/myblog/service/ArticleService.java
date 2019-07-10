@@ -1,5 +1,6 @@
 package com.ray.myblog.service;
 
+import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.ArticleSimpleDto;
 
@@ -18,7 +19,7 @@ public interface ArticleService {
     void addArticle(ArticleDto articleDto);
 
     /**
-     * 查询一篇文章
+     * 查询一篇文章详细版ArticleDto
      * @param id 文章id
      * @return 详细文章dto
      */
@@ -31,10 +32,11 @@ public interface ArticleService {
     void deleteById(Long id);
 
     /**
-     * 查询所有文章
-     * @param page 页码
-     * @return 简单文章dto
+     * 查询所有文章简单版ArticleDto
+     * @param pageNum 页码
+     * @param pageSize 每页数量
+     * @return 简单文章dto ArticleSimpleDto的封装PageInfo对象
      */
-    List<ArticleSimpleDto> list(Integer page);
+    PageInfo list(Integer pageNum, Integer pageSize);
 
 }

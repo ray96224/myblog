@@ -1,0 +1,73 @@
+/*背景图片*/
+body{
+    background-repeat:no-repeat;
+    background-attachment:fixed
+}
+
+/*顶部线条*/
+#article-main .top{
+    height: 0.25rem;
+}
+
+/*卡片样式*/
+#article-main .card{
+    margin-top: 20px;
+    border: 0px;
+    width: 100% !important;
+}
+
+/*卡片首部样式*/
+#article-main .card-top{
+    height: 100px;
+    color: white;
+    background-color: #23272b;
+    text-align: center;
+    font-size: 20px;
+    line-height: 70px;
+}
+
+/*!*导航栏条目间距*!*/
+/*#nav_top .nav-item{*/
+/*    margin-left: 130px;*/
+/*}*/
+
+/*主体右侧*/
+#article-main .right-part{
+    margin-top: 20px;
+    background: white;
+    border-radius: 0.25rem;
+
+}
+
+/*文章条目*/
+#article-main .article-item{
+    margin: 30px 30px;
+}
+
+/*文章标题*/
+#article-main .article-title{
+    color: #555;
+}
+
+/*文章时间分类等*/
+#article-main .article-detail{
+    font-size: 14px;
+    color: gray;
+}
+
+/*.col-md-12,.col-sm-12{*/
+/*    padding: 0;*/
+/*}*/
+
+/*.navbar{*/
+/*    background-color: white !important;*/
+/*}*/
+
+/*小屏幕调用*/
+#article-main .right-for-phone{
+    padding: 0;
+}
+#article-main .right-div-for-phone{
+    margin-top: 0;
+    border-radius: 0;
+}
