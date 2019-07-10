@@ -58,9 +58,6 @@
 <script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
 <script type="text/javascript" th:inline="javascript">
-    // $(function () {
-    //     $("#mdtxt").load("markdown.html");
-    // })
 
     /*
     小屏幕适配临时解决方案
@@ -124,7 +121,7 @@
                 }
                 var span = $("<span></span>").addClass("page-link").text(n);
                 $("#page").append(li.append(span));
-            })
+            });
             //下一页
             var nextLi = $("<li></li>").addClass("page-item");
             if (data.pageNum == data.pages){

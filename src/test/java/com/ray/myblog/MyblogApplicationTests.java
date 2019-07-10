@@ -3,7 +3,9 @@ package com.ray.myblog;
 import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.ArticleSimpleDto;
+import com.ray.myblog.entity.CategoryInfo;
 import com.ray.myblog.service.ArticleService;
+import com.ray.myblog.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class MyblogApplicationTests {
     @Autowired
     ArticleService articleService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @Test
     public void contextLoads() {
 
@@ -28,6 +33,7 @@ public class MyblogApplicationTests {
 
     @Test
     public void testQuery(){
+
     }
 
 }

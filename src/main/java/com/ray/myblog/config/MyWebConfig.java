@@ -11,8 +11,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MyWebConfig implements WebMvcConfigurer {
 
-//    @Override
-//    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("hello");
-//    }
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        //归档页
+        registry.addViewController("/list").setViewName("pages/list");
+        //分类页
+        registry.addViewController("/category").setViewName("pages/category");
+        //分类对应文章列表页
+        registry.addViewController("/list-by-category").setViewName("pages/list-by-category");
+    }
 }

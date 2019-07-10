@@ -24,7 +24,7 @@
                 <div style="height: 1px"></div>
                 <br>
                 <div style="margin-left: 15px">
-                    <h2 class="h2">归档</h2>
+                    <h2 class="h2">分类</h2>
                 </div>
                 <div>
                     <ul id="list" class="list-group list-group-flush">
@@ -58,9 +58,6 @@
 <script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
 <script type="text/javascript" th:inline="javascript">
-    // $(function () {
-    //     $("#mdtxt").load("markdown.html");
-    // })
 
     /*
     小屏幕适配临时解决方案
@@ -78,7 +75,62 @@
     $(function () {
             getList(1);
         }
-    )
+    );
+    function getList(page) {
+        $("#list").empty();
+        $("#page").empty();
+        $.getJSON(basePath+"/list-category/"+page, function (data) {
+
+            //条目
+            $.each(data.list, function (i,n) {
+                var span = $("<span></span>").text(n.name);
+                var item = $("<a></a>").addClass("list-group-item list-group-item-action")
+                    .append(span)
+                    .append(span).attr("href",basePath+"/list-by-category?categoryId="+n.id+"&categoryName="+n.name);
+                $("#list").append(item);
+            });
+            /*
+            构建分页条
+             */
+            //上一页
+            var previousLi = $("<li></li>").addClass("page-item");
+            if (data.pageNum == 1){
+                previousLi.addClass("disabled");
+            }else {
+                previousLi.click(function () {
+                    getList(data.pageNum-1);
+                })
+            }
+            var previousSpan = $("<span></span>").addClass("page-link").text("上一页");
+            $("#page").append(previousLi.append(previousSpan));
+            //页码们
+            $.each(data.navigatepageNums,function (i,n) {
+                var li = $("<li></li>").addClass("page-item");
+                if (data.pageNum == n){
+                    li.addClass("disabled active");
+                }else {
+                    li.click(function () {
+                        getList(n);
+                    })
+                }
+                var span = $("<span></span>").addClass("page-link").text(n);
+                $("#page").append(li.append(span));
+            });
+            //下一页
+            var nextLi = $("<li></li>").addClass("page-item");
+            if (data.pageNum == data.pages){
+                nextLi.addClass("disabled");
+            }else {
+                nextLi.click(function () {
+                    getList(data.pageNum+1);
+                })
+            }
+            var nextSpan = $("<span></span>").addClass("page-link").text("下一页");
+            $("#page").append(nextLi.append(nextSpan));
+
+        })
+
+    }
 
 </script>
 </body>

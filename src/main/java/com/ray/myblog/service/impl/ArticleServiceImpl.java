@@ -76,8 +76,6 @@ public class ArticleServiceImpl implements ArticleService {
         articleCategory.setArticleId(articleInfo.getId());
         articleCategory.setCategoryId(categoryInfo.getId());
         articleCategoryMapper.insertSelective(articleCategory);
-
-
     }
 
     @Override
@@ -146,6 +144,37 @@ public class ArticleServiceImpl implements ArticleService {
         return pageInfo;
     }
 
+    @Override
+    public PageInfo listByCategory(Long categoryId, Integer pageNum, Integer pageSize) {
+        List<ArticleSimpleDto> list = new ArrayList<>();
+        ArticleCategoryExample example = new ArticleCategoryExample();
+        example.or().andCategoryIdEqualTo(categoryId);
+        PageHelper.startPage(pageNum, pageSize);
+        List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(example);
+        PageInfo pageInfo = new PageInfo(articleCategories);
+        for (int i = 0; i < articleCategories.size(); i++){
+            ArticleSimpleDto articleSimpleDto = new ArticleSimpleDto();
+            //articleInfo
+            ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(articleCategories.get(i).getArticleId());
+            articleSimpleDto.setId(articleInfo.getId());
+            articleSimpleDto.setTitle(articleInfo.getTitle());
+            articleSimpleDto.setTop(articleInfo.getIsTop());
+            articleSimpleDto.setCreated(articleInfo.getCreated());
+            //articleImage
+            ArticleImage imageByArticleId = getImageByArticleId(articleInfo.getId());
+            articleSimpleDto.setImageId(imageByArticleId.getId());
+            articleSimpleDto.setImageUrl(imageByArticleId.getImageUrl());
+            //CategoryInfo
+            ArticleCategory articleCategoryByArticleId = getArticleCategoryByArticleId(articleInfo.getId());
+            CategoryInfo categoryInfo = categoryInfoMapper.selectByPrimaryKey(articleCategoryByArticleId.getCategoryId());
+            articleSimpleDto.setCategoryId(categoryInfo.getId());
+            articleSimpleDto.setCategoryName(categoryInfo.getName());
+            list.add(articleSimpleDto);
+        }
+        pageInfo.setList(list);
+        return pageInfo;
+    }
+
     /**
      * 获取图片信息
      * @param articleId
@@ -169,4 +198,6 @@ public class ArticleServiceImpl implements ArticleService {
         List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(articleCategoryExample);
         return  articleCategories.get(0);
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.ray.myblog.controller;
 import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.service.ArticleService;
+import com.ray.myblog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class MainController {
     @Autowired
     ArticleService articleService;
 
+    @Autowired
+    CategoryService categoryService;
+
     /**
      * 首页
      * @param model
@@ -33,15 +37,11 @@ public class MainController {
     }
 
     /**
-     * 归档页
+     * 文章页
+     * @param id 文章id
+     * @param model
      * @return
      */
-    @RequestMapping("/list")
-    public String listPage(){
-        return "pages/list";
-    }
-
-
     @RequestMapping("/article/{id}")
     public String articlePage(@PathVariable Long id, Model model){
         ArticleDto articleDto = articleService.getOneById(id);
@@ -49,22 +49,41 @@ public class MainController {
         return "pages/article";
     }
 
-//    @ResponseBody
-//    @RequestMapping("/test/{id}")
-//    public ArticleDto articlePageTest(@PathVariable Long id){
-//        ArticleDto articleDto = articleService.getOneById(id);
-//        return articleDto;
-//    }
-
     /**
      * 归档页面ajax请求
-     * @param pageNum
+     * @param pageNum 页码
      * @return
      */
     @ResponseBody
     @GetMapping("/list-title/{pageNum}")
     public PageInfo listTile(@PathVariable("pageNum") Integer pageNum){
         PageInfo pageInfo = articleService.list(pageNum, 13);
+        return pageInfo;
+    }
+
+    /**
+     * 分类文章列表页面ajax请求
+     * @param categoryId
+     * @param pageNum
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/list-title-by-category/{categoryId}/{pageNum}")
+    public PageInfo listTitleByCategory(@PathVariable("categoryId") Long categoryId,
+                                    @PathVariable("pageNum") Integer pageNum){
+        PageInfo pageInfo = articleService.listByCategory(categoryId, pageNum, 10);
+        return pageInfo;
+    }
+
+    /**
+     * 分类页Ajax请求
+     * @param pageNum
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/list-category/{pageNum}")
+    public PageInfo listCategory(@PathVariable("pageNum") Integer pageNum){
+        PageInfo pageInfo = categoryService.listCategory(pageNum);
         return pageInfo;
     }
 }
