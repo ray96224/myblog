@@ -3,9 +3,12 @@ package com.ray.myblog;
 import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.ArticleSimpleDto;
+import com.ray.myblog.dto.CommentDto;
 import com.ray.myblog.entity.CategoryInfo;
+import com.ray.myblog.entity.CommentInfo;
 import com.ray.myblog.service.ArticleService;
 import com.ray.myblog.service.CategoryService;
+import com.ray.myblog.service.CommentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ public class MyblogApplicationTests {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    CommentService commentService;
+
     @Test
     public void contextLoads() {
 
@@ -33,7 +39,11 @@ public class MyblogApplicationTests {
 
     @Test
     public void testQuery(){
-
+        PageInfo list = commentService.list(1L, 1, 5);
+        for (int i = 0;i < list.getList().size(); i++){
+            String content = ((CommentInfo) list.getList().get(i)).getContent();
+            System.out.println(content);
+        }
     }
 
 }

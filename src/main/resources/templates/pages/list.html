@@ -124,7 +124,7 @@
             });
             //下一页
             var nextLi = $("<li></li>").addClass("page-item");
-            if (data.pageNum == data.pages){
+            if (data.pageNum == data.pages || result.pages == 0){
                 nextLi.addClass("disabled");
             }else {
                 nextLi.click(function () {

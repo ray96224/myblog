@@ -26,11 +26,13 @@
                 <div style="height: 1px"></div>
                 <section class="article-item" th:each="article : ${pageInfo.list}">
                     <header>
-                        <p class="h3 text-center article-title" th:text="${article.title}">标题</p>
+                        <div class="text-center">
+                            <a class="h3 article-title" th:text="${article.title}" th:href="@{/article/}+${article.id}">标题</a>
+                        </div>
                         <div class="article-detail text-center">
                             <span th:text="时间：+${#dates.format(article.created, 'yyyy-MM-dd')}">时间：[时间]</span>
                             &nbsp&nbsp
-                            <span th:text="分类：+${article.categoryName}">分类：[分类]</span>
+                            <span th:text="分类："></span><a th:text="${article.categoryName}" th:href="@{/list-by-category(categoryId=${article.categoryId},categoryName=${article.categoryName})}">分类：[分类]</a>
                         </div>
                         <br>
                     </header>

@@ -64,6 +64,7 @@
             <version>3.4.1</version>
         </dependency>
 
+        <!--webjars-->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
@@ -76,13 +77,13 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.12</version>
         </dependency>
-        <!--marked.js-->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>marked</artifactId>
-            <version>0.6.2</version>
-        </dependency>
 
+        <!--数据校验validator-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.16.Final</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

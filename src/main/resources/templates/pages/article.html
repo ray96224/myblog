@@ -29,7 +29,7 @@
                         <div class="article-detail text-center">
                             <span th:text="时间：+${#dates.format(article.created, 'yyyy-MM-dd')}">时间：[时间]</span>
                             &nbsp&nbsp
-                            <span th:text="分类：+${article.categoryName}">分类：[分类]</span>
+                            <span th:text="分类："></span><a th:text="${article.categoryName}" th:href="@{/list-by-category(categoryId=${article.categoryId},categoryName=${article.categoryName})}">分类：[分类]</a>
                         </div>
                         <br>
                     </header>
@@ -43,12 +43,51 @@
                     <div id="article-content" th:utext="${article.content}"></div>
                     <footer><hr></footer>
                 </section>
+                <div style="margin-left: 15px; margin-right: 15px">
+                    <h4 class="h4">评论</h4>
+                    <br>
+                    <div id="comment-list">
+<!--                        <div>-->
+<!--                            <div>-->
+<!--                                <span class="text-secondary font-weight-bold">Normal =.</span>-->
+<!--                                <div class="text-secondary font-weight-normal" style="font-size: 14px">2019-5-6</div>-->
+<!--                            </div>-->
+<!--                            <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>-->
+<!--                            <br>-->
+<!--                        </div>-->
+                    </div>
+                    <br>
+                </div>
+                <div style="margin-left: 15px; margin-right: 15px">
+                    <h5 class="h5">发表评论</h5>
+                    <form id="leave-comment">
+                        <input type="hidden" name="articleId" value="" th:value="${article.id}">
+                        <div class="form-group">
+                            <label>评论</label>
+                            <textarea class="form-control" rows="3" name="content"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label>昵称</label>
+                                <input id="input-name" type="text" class="form-control" placeholder="example@bog.com" name="name">
+                            </div>
+                            <div class="col">
+                                <label>邮箱</label>
+                                <input id="input-email" type="email" class="form-control" placeholder="name" name="email">
+                            </div>
+                        </div>
+                        <div id="input-vali"></div>
+                        <br>
+                        <button type="submit" class="btn btn-info">发表评论</button>
+                        <br>
+                    </form>
+                    <br>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
 <script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
@@ -66,6 +105,92 @@
 
     //项目路径
     var basePath = [[${#request.getContextPath()}]];
+    var articleId = [[${article.id}]];
+
+    //页面加载完成加载评论
+    $(function () {
+        getComments(1);
+    });
+
+    //提交评论
+    $("#leave-comment button").click(function () {
+        //校验
+        var regName = /^[a-zA-Z]{1,20}|[\u4e00-\u9fa5]{1,10}$/;
+        var regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        if ($.trim($("#leave-comment textarea").val()) == ""){
+            $("#input-vali").attr("style","color: red").text("评论内容不能为空");
+            return false
+        } else if (!regName.test($.trim($("#input-name").val()))) {
+            $("#input-vali").attr("style","color: red").text("昵称格式不正确，请重新输入");
+            return false
+        } else if (!regEmail.test($.trim($("#input-email").val()))) {
+            $("#input-vali").attr("style","color: red").text("邮箱格式不正确，请重新输入");
+            return false
+        } else {
+            $("#input-vali").empty();
+        }
+
+        addComment();
+        return false;
+    });
+
+    //添加评论异步请求
+    function addComment() {
+        $("#comment-list").empty();
+        $.ajax({
+            url: basePath+"/add-comment/"+1,
+            data: $("#leave-comment").serialize(),
+            type: "POST",
+            success: function (result) {
+                //清空表单
+                $("#leave-comment")[0].reset();
+                createCommentList(result)
+
+            }
+        })
+    }
+
+    //获取评论异步请求
+    function getComments(pageNum) {
+        $("#comment-list").empty();
+        $.ajax({
+            url: basePath+"/list-comment/"+articleId+"/"+pageNum,
+            type: "GET",
+            success: function (result) {
+                // console.log(result)
+                createCommentList(result)
+            }
+        })
+    }
+
+    //创建评论列表
+    function createCommentList(result) {
+        $.each(result.list, function (i, n) {
+            var span = $("<span></span>").addClass("text-secondary font-weight-bold").text(n.name);
+            var date = new Date(n.created);
+            var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+            var userDiv = $("<div></div>").addClass("text-secondary font-weight-normal")
+                .attr("style","font-size: 14px")
+                .text(dateString);
+            var outsideDiv = $("<div></div>").append(span).append(userDiv);
+            var nextDiv = $("<div></div>").addClass("p-3 mb-2 bg-light text-dark").text(n.content);
+            $("#comment-list").append(outsideDiv).append(nextDiv);
+        });
+        var pageDiv = $("<div></div>").addClass("text-center");
+        var preA = $("<a></a>").addClass("btn btn-light btn-sm").text("上一页").click(function () {
+            getComments(result.pageNum - 1)
+        });
+        if (result.pageNum == 1){
+            preA.addClass("disabled")
+        }
+        var nextA = $("<a></a>").addClass("btn btn-light btn-sm").text("下一页").click(function () {
+            getComments(result.pageNum + 1)
+        });
+        if (result.pageNum == result.pages || result.pages == 0) {
+            nextA.addClass("disabled")
+        }
+        pageDiv.append(preA).append(nextA).appendTo($("#comment-list"));
+    }
 
 
 </script>

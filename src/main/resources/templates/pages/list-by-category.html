@@ -87,12 +87,9 @@
             //条目
             $.each(data.list, function (i,n) {
                 var titleSpan = $("<span></span>").text(n.title);
-                var date = new Date(n.created);
-                var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
-                var timeSpan = $("<span style='float: right;'></span>").text(dateString);
                 var item = $("<a></a>").addClass("list-group-item list-group-item-action")
                     .append(titleSpan)
-                    .append(timeSpan).attr("href",basePath+"/article/"+n.id);
+                    .attr("href",basePath+"/article/"+n.id);
                 $("#list").append(item);
             });
 

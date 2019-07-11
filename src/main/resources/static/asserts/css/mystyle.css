@@ -45,12 +45,12 @@ body{
 }
 
 /*文章标题*/
-.article-title{
+.article-title,.article-title:hover {
     color: #555;
 }
 
 /*文章时间分类等*/
-.article-detail{
+.article-detail span,.article-detail a,.article-detail a:hover{
     font-size: 14px;
     color: gray;
 }
