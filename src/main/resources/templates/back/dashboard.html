@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <title>Title</title>
+</head>
+<body style="background: #CCCCCC">
+<div class="container-fluid">
+    <div class="row" th:insert="back/back-nav :: back-nav-part">
+
+    </div>
+    <div style="height: 50px"></div>
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <div class="p-3 mb-2 bg-info text-white" th:text="总访问量：+${totalVisit}">总访问量：5000</div>
+                <div class="p-3 mb-2 bg-info text-white" th:text="评论数量：+${comments}">评论数量：125</div>
+                <div class="p-3 mb-2 bg-info text-white" th:text="文章数量：+${articles}">文章数量：20</div>
+            </div>
+        </div>
+        <div class="col-md-8 offset-1">
+            <div>
+                <h5>评论</h5>
+                <table class="table" style="background: white">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">昵称</th>
+                        <th scope="col">邮箱</th>
+                        <th scope="col">IP</th>
+                        <th scope="col">文章</th>
+                        <th scope="col">内容</th>
+                        <th scope="col">时间</th>
+                        <th scope="col">删除</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-comment">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul id="comment-page" class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+                <br>
+            </div>
+            <div>
+                <h5>访问记录</h5>
+                <table class="table" style="background: white">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">IP地址</th>
+                        <th scope="col">访问资源</th>
+                        <th scope="col">时间</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-log">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul id="log-page" class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <h5>文章</h5>
+                <table class="table" style="background: white">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">标题</th>
+                        <th scope="col">分类</th>
+                        <th scope="col">发布时间</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-article">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul id="article-page" class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var basePath = [[${#request.getContextPath()}]];
+
+
+    $(function () {
+        getComments(1);
+        getLogs(1);
+        getArticles(1);
+    });
+
+    //构建评论表格
+    function getComments(pageNum) {
+        $("#tbody-comment").empty();
+        $("#comment-page").empty();
+        $.ajax({
+            url: basePath+"/back/list-comments/"+pageNum,
+            success: function (result) {
+                $.each(result.list, function (i,n) {
+                    var date = new Date(n.created);
+                    var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+                    var tr = $("<tr></tr>");
+                    var th = $("<th scope='row'></th>").text(n.id);
+                    var tdName = $("<td></td>").text(n.name);
+                    var tdEmail = $("<td></td>").text(n.email);
+                    var tdIp = $("<td></td>").text(n.ip);
+                    var tdArticle = $("<td></td>").text(n.articleTitle);
+                    var tdContent = $("<td></td>").text(n.content);
+                    var tdTime = $("<td></td>").text(dateString);
+
+                    var tdButton = $("<td></td>");
+                    var deleteButton = $("<a></a>").addClass("btn btn-warning").text("删除").click(function () {
+                        deleteComment(n.id, n.relationId, result.pageNum);
+                    });
+                    tdButton.append(deleteButton);
+                    tr.append(th)
+                        .append(tdName)
+                        .append(tdEmail)
+                        .append(tdIp)
+                        .append(tdArticle)
+                        .append(tdContent)
+                        .append(tdTime)
+                        .append(tdButton)
+                        .appendTo($("#tbody-comment"));
+                });
+                createNav(result,$("#comment-page"))
+            }
+        })
+    }
+
+    //删除评论
+    function deleteComment(commentId, relationId, pageNum) {
+        $.ajax({
+            url: basePath+"/back/delete-comment/"+commentId+"/"+relationId,
+            success: function (result) {
+                if (result == "success"){
+                    getComments(pageNum);
+                }
+            }
+        })
+    }
+
+    //构建日志表格
+    function getLogs(pageNum) {
+        $("#tbody-log").empty();
+        $("#log-page").empty();
+        $.ajax({
+            url: basePath+"/back/list-logs/"+pageNum,
+            success: function (result) {
+                $.each(result.list, function (i,n) {
+                    var date = new Date(n.created);
+                    var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+                    var tr = $("<tr></tr>");
+                    var th = $("<th scope='row'></th>").text(n.id);
+                    var tdIp = $("<td></td>").text(n.ip);
+                    var tdUri = $("<td></td>").text(n.uri);
+                    var tdTime = $("<td></td>").text(dateString);
+                    tr.append(th)
+                        .append(tdIp)
+                        .append(tdUri)
+                        .append(tdTime)
+                        .appendTo($("#tbody-log"));
+                });
+                createNav(result,$("#log-page"))
+            }
+        })
+    }
+
+    //构建文章表格
+    function getArticles(pageNum) {
+        $("#tbody-article").empty();
+        $("#article-page").empty();
+        $.ajax({
+            url: basePath+"/back/list-articles/"+pageNum,
+            success: function (result) {
+                $.each(result.list, function (i,n) {
+                    var date = new Date(n.created);
+                    var dateString = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+                    var tr = $("<tr></tr>");
+                    var th = $("<th scope='row'></th>").text(n.id);
+                    var tdTitle = $("<td></td>").text(n.title);
+                    var tdCategory = $("<td></td>").text(n.categoryName);
+                    var tdTime = $("<td></td>").text(dateString);
+                    var operateTd = $("<td></td>");
+                    var deleteButton = $("<a></a>").addClass("btn btn-warning").text("删除").click(function () {
+                        deleteArticle(n.id, result.pageNum);
+                    });
+                    var editButton = $("<a></a>").addClass("btn btn-primary").text("编辑").attr("href", basePath+"/back/edit-article/"+n.id);
+                    operateTd.append(deleteButton).append(" ").append(editButton);
+                    tr.append(th)
+                        .append(tdTitle)
+                        .append(tdCategory)
+                        .append(tdTime)
+                        .append(operateTd)
+                        .appendTo($("#tbody-article"));
+                });
+                createNav(result,$("#article-page"))
+            }
+        })
+    }
+
+    //删除文章
+    function deleteArticle(id, pageNum) {
+        $.ajax({
+            url: basePath+"/back/delete-article/"+id,
+            success: function (result) {
+                if (result == "success"){
+                    getArticles(pageNum);
+                }
+            }
+        })
+    }
+
+    /*
+     构建分页条
+    */
+    //上一页
+    function createNav(data ,targetPage) {
+        var previousLi = $("<li></li>").addClass("page-item");
+        if (data.pageNum == 1){
+            previousLi.addClass("disabled");
+        }else {
+            previousLi.click(function () {
+                if (targetPage.get(0) === $("#comment-page").get(0)) {
+                    getComments(data.pageNum-1)
+                }
+                if (targetPage.get(0) === $("#log-page").get(0)){
+                    getLogs(data.pageNum-1)
+                }
+                if (targetPage.get(0) === $("#article-page").get(0)){
+                    getArticles(data.pageNum-1)
+                }
+            })
+        }
+        var previousSpan = $("<span></span>").addClass("page-link").text("上一页");
+        targetPage.append(previousLi.append(previousSpan));
+        //页码们
+        $.each(data.navigatepageNums,function (i,n) {
+            var li = $("<li></li>").addClass("page-item");
+            if (data.pageNum == n){
+                li.addClass("disabled active");
+            }else {
+                li.click(function () {
+                    if (targetPage.get(0) === $("#comment-page").get(0)) {
+                        getComments(n)
+                    }
+                    if (targetPage.get(0) === $("#log-page").get(0)){
+                        getLogs(n)
+                    }
+                    if (targetPage.get(0) === $("#article-page").get(0)){
+                        getArticles(n)
+                    }
+                })
+            }
+            var span = $("<span></span>").addClass("page-link").text(n);
+            targetPage.append(li.append(span));
+        });
+        //下一页
+        var nextLi = $("<li></li>").addClass("page-item");
+        if (data.pageNum == data.pages || data.pages == 0){
+            nextLi.addClass("disabled");
+        }else {
+            nextLi.click(function () {
+                if (targetPage.get(0) === $("#comment-page").get(0)) {
+                    getComments(data.pageNum+1)
+                }
+                if (targetPage.get(0) === $("#log-page").get(0)){
+                    getLogs(data.pageNum+1)
+                }
+                if (targetPage.get(0) === $("#article-page").get(0)){
+                    getArticles(data.pageNum+1)
+                }
+            })
+        }
+        var nextSpan = $("<span></span>").addClass("page-link").text("下一页");
+        targetPage.append(nextLi.append(nextSpan));
+    }
+
+</script>
+</body>
+</html>
+
+<!--<tbody id="tbody-comment">-->
+<!--<tr>-->
+<!--    <th scope="row">1</th>-->
+<!--    <td>Mark</td>-->
+<!--    <td>Otto</td>-->
+<!--    <td>@mdo</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--    <th scope="row">2</th>-->
+<!--    <td>Jacob</td>-->
+<!--    <td>Thornton</td>-->
+<!--    <td>@fat</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--    <th scope="row">3</th>-->
+<!--    <td>Larry</td>-->
+<!--    <td>the Bird</td>-->
+<!--    <td>@twitter</td>-->
+<!--</tr>-->
+<!--</tbody>-->

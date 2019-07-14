@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <link rel="stylesheet" href="css/mystyle.css" th:href="@{/asserts/css/back.css}">
+    <title>Title</title>
+</head>
+<body style="background: #CCCCCC">
+<div class="container-fluid">
+    <div class="row" th:insert="back/back-nav :: back-nav-part">
+
+    </div>
+    <div style="height: 50px"></div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" enctype="multipart/form-data" th:action="@{/back/save-article-change}">
+
+                <input type="hidden" name="id" th:value="${articleDto.id}">
+                <div class="form-group">
+                    <label for="input-title">标题</label>
+                    <input type="text" class="form-control" id="input-title" placeholder="Title" name="title" th:value="${articleDto.title}">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-summary">概要</label>
+                    <input type="text" class="form-control" id="input-summary" placeholder="Summary" name="summary" th:value="${articleDto.summary}">
+                </div>
+
+                <input type="hidden" name="categoryId" th:value="${articleDto.categoryId}">
+                <input type="hidden" name="relationId" th:value="${articleDto.relationId}">
+                <div class="form-group">
+                    <label for="input-category">分类</label>
+                    <input type="text" class="form-control" id="input-category" placeholder="Category" name="categoryName" th:value="${articleDto.categoryName}">
+                </div>
+
+                <br>
+                <div>是否置顶</div>
+                <div class="custom-control custom-radio  custom-control-inline">
+                    <input type="radio" id="customRadio1" class="custom-control-input" name="isTop" th:checked="${articleDto.top}">
+                    <label class="custom-control-label" for="customRadio1">是</label>
+                </div>
+                <div class="custom-control custom-radio  custom-control-inline">
+                    <input type="radio" id="customRadio2" class="custom-control-input" name="isTop" th:checked="${not articleDto.top}">
+                    <label class="custom-control-label" for="customRadio2" >否</label>
+                </div>
+
+<!--                <br>-->
+<!--                <br>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="image-file">文章题图</label>-->
+<!--                    <input type="file" class="form-control-file" accept="image/*" id="image-file" name="file">-->
+<!--                </div>-->
+
+                <br>
+                <input type="hidden" name="contentId" th:value="${articleDto.contentId}">
+                <div class="form-group">
+                    <label for="input-content">内容</label>
+                    <textarea class="form-control" id="input-content" rows="10" name="content"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="article-submit">提交</button>
+            </form>
+        </div>
+        <div class="col-lg-6">
+<!--            <div id="image-show">-->
+<!--            </div>-->
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/jquery-3.4.1.min.js" th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<script src="js/popper.min.js" th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var basePath = [[${#request.getContextPath()}]];
+
+    // $("#image-file").change(function () {
+    //     $("#image-show").empty();
+    //     if (this.files && this.files[0]) {
+    //         var image = $("<img>").addClass("img-fluid img-thumbnail");
+    //         var reader = new FileReader();
+    //         reader.onload = function (ev) {
+    //             image.attr('src', ev.target.result)
+    //                 .appendTo($("#image-show"))
+    //         };
+    //         reader.readAsDataURL(this.files[0]);
+    //     }
+    // })
+
+    $("#article-submit").click(function () {
+        if ($.trim($("#input-title").val()) == "") {
+            alert("标题不能为空");
+            return false
+        }
+        if ($.trim($("#input-summary").val()) == "") {
+            alert("概要不能为空");
+            return false
+        }
+        if ($.trim($("#input-category").val()) == "") {
+            alert("分类不能为空");
+            return false
+        }
+        if ($.trim($("#input-content").val()) == "") {
+            alert("文章内容不能为空");
+            return false
+        }
+        var radioValue=$('input:radio[name="isTop"]:checked').val();
+        if (radioValue == null){
+            alert("选择是否置顶");
+            return false
+        }
+        // if ($("#image-file").val() == ""){
+        //     alert("选择题图");
+        //     return false
+        // }
+        return true
+    })
+
+
+</script>
+</body>
+</html>

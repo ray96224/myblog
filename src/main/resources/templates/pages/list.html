@@ -75,7 +75,7 @@
     $(function () {
         getList(1);
         }
-    )
+    );
 
     //AJAX构建文章列表
     function getList(page) {
@@ -124,7 +124,7 @@
             });
             //下一页
             var nextLi = $("<li></li>").addClass("page-item");
-            if (data.pageNum == data.pages || result.pages == 0){
+            if (data.pageNum == data.pages || data.pages == 0){
                 nextLi.addClass("disabled");
             }else {
                 nextLi.click(function () {

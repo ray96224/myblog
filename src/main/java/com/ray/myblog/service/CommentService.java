@@ -17,8 +17,23 @@ public interface CommentService {
     void addComment(CommentDto commentDto);
 
     /**
-     * 查询评论
+     * 根据文章查询评论
      * @return
      */
-    PageInfo list(Long articleId, Integer pageNum, Integer pageSize);
+    PageInfo listByArticle(Long articleId, Integer pageNum, Integer pageSize);
+
+    /**
+     * 查询所有评论
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageInfo getAll(Integer pageNum, Integer pageSize);
+
+    /**
+     * 删除一条评论
+     * @param commentId
+     * @param relationId
+     */
+    void delete(Long commentId, Long relationId);
 }

@@ -8,6 +8,7 @@ import com.ray.myblog.dto.ArticleSimpleDto;
 import com.ray.myblog.entity.*;
 import com.ray.myblog.service.ArticleService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 
     @Override
+    @Transactional
     public void addArticle(ArticleDto articleDto) {
         //插入ArticleInfo
         ArticleInfo articleInfo = new ArticleInfo();
@@ -111,14 +113,76 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    @Transactional
+    public void updateArticle(ArticleDto articleDto) {
+        ArticleInfo articleInfo = new ArticleInfo();
+        articleInfo.setId(articleDto.getId());
+        articleInfo.setTitle(articleDto.getTitle());
+        articleInfo.setSummary(articleDto.getSummary());
+        articleInfo.setIsTop(articleDto.getTop());
+        articleInfoMapper.updateByPrimaryKeySelective(articleInfo);
 
+        ArticleContent articleContent = new ArticleContent();
+        articleContent.setId(articleDto.getContentId());
+        articleContent.setContent(articleDto.getContent());
+        articleContentMapper.updateByPrimaryKeySelective(articleContent);
+
+        CategoryInfo info = categoryInfoMapper.selectByPrimaryKey(articleDto.getCategoryId());
+        if (!info.getName().equals(articleDto.getCategoryName())){
+
+            articleCategoryMapper.deleteByPrimaryKey(articleDto.getRelationId());
+
+            //插入CategoryInfo
+            CategoryInfo categoryInfo = new CategoryInfo();
+            CategoryInfoExample categoryInfoExample = new CategoryInfoExample();
+            categoryInfoExample.or().andNameEqualTo(articleDto.getCategoryName());
+            List<CategoryInfo> categoryInfos = categoryInfoMapper.selectByExample(categoryInfoExample);
+            if (categoryInfos.size() == 0){
+                categoryInfo.setName(articleDto.getCategoryName());
+                categoryInfo.setIsEffective(true);
+                categoryInfoMapper.insertSelective(categoryInfo);
+            }else {
+                categoryInfo = categoryInfos.get(0);
+            }
+
+            //插入ArticleCategory
+            ArticleCategory articleCategory = new ArticleCategory();
+            articleCategory.setArticleId(articleInfo.getId());
+            articleCategory.setCategoryId(categoryInfo.getId());
+            articleCategoryMapper.insertSelective(articleCategory);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        //内容id
+        ArticleContentExample example = new ArticleContentExample();
+        example.or().andArticleIdEqualTo(id);
+        List<ArticleContent> articleContents = articleContentMapper.selectByExample(example);
+        Long contentId = articleContents.get(0).getId();
+        //图片id
+        ArticleImageExample example1 = new ArticleImageExample();
+        example1.or().andArticleIdEqualTo(id);
+        List<ArticleImage> articleImages = articleImageMapper.selectByExample(example1);
+        Long imageId = articleImages.get(0).getId();
+        //分类关联id
+        ArticleCategoryExample example2 = new ArticleCategoryExample();
+        example2.or().andArticleIdEqualTo(id);
+        List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(example2);
+        Long relationId = articleCategories.get(0).getId();
+
+        articleInfoMapper.deleteByPrimaryKey(id);
+        articleContentMapper.deleteByPrimaryKey(contentId);
+        articleImageMapper.deleteByPrimaryKey(imageId);
+        articleCategoryMapper.deleteByPrimaryKey(relationId);
     }
 
     @Override
     public PageInfo list(Integer page, Integer pageSize) {
         List<ArticleSimpleDto> list = new ArrayList<>();
-        PageHelper.startPage(page,pageSize);
+        String order = "id DESC";
+        PageHelper.startPage(page,pageSize,order);
         List<ArticleInfo> articleInfos = articleInfoMapper.selectByExample(null);
         PageInfo pageInfo = new PageInfo(articleInfos);
         for (int i = 0; i < articleInfos.size(); i++ ){
@@ -149,7 +213,8 @@ public class ArticleServiceImpl implements ArticleService {
         List<ArticleSimpleDto> list = new ArrayList<>();
         ArticleCategoryExample example = new ArticleCategoryExample();
         example.or().andCategoryIdEqualTo(categoryId);
-        PageHelper.startPage(pageNum, pageSize);
+        String order = "id DESC";
+        PageHelper.startPage(pageNum, pageSize, order);
         List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(example);
         PageInfo pageInfo = new PageInfo(articleCategories);
         for (int i = 0; i < articleCategories.size(); i++){
@@ -173,6 +238,15 @@ public class ArticleServiceImpl implements ArticleService {
         }
         pageInfo.setList(list);
         return pageInfo;
+    }
+
+    /**
+     * 增加查看次数
+     * @param articleInfo
+     */
+    @Override
+    public void increaseViewTimes(ArticleInfo articleInfo) {
+        articleInfoMapper.updateByPrimaryKeySelective(articleInfo);
     }
 
     /**

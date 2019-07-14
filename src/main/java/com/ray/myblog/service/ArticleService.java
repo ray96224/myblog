@@ -2,6 +2,7 @@ package com.ray.myblog.service;
 
 import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
+import com.ray.myblog.entity.ArticleInfo;
 
 /**
  * @author: ray
@@ -43,4 +44,16 @@ public interface ArticleService {
      */
     PageInfo listByCategory(Long categoryId,Integer pageNum, Integer pageSize);
 
+
+    /**
+     *增加访问次数
+     * @param articleInfo
+     */
+    void increaseViewTimes(ArticleInfo articleInfo);
+
+    /**
+     * 更新文章
+     * @param articleDto
+     */
+    void updateArticle(ArticleDto articleDto);
 }

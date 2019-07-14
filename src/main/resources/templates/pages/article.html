@@ -35,7 +35,7 @@
                     </header>
                     <div class="text-center">
                         <p>
-                            <img class="img-fluid img-thumbnail" alt="Responsive image" src="img/守望先锋.jpg" th:src="@{/images/}+${article.imageUrl}">
+                            <img class="img-fluid img-thumbnail" alt="Responsive image" src="img/守望先锋.jpg" th:src="@{/article-images/}+${article.imageUrl}">
                             <br>
                             <br>
                         </p>
@@ -69,13 +69,14 @@
                         <div class="form-row">
                             <div class="col">
                                 <label>昵称</label>
-                                <input id="input-name" type="text" class="form-control" placeholder="example@bog.com" name="name">
+                                <input id="input-name" type="text" class="form-control" name="name">
                             </div>
                             <div class="col">
                                 <label>邮箱</label>
-                                <input id="input-email" type="email" class="form-control" placeholder="name" name="email">
+                                <input id="input-email" type="email" class="form-control" placeholder="example@email.com" name="email">
                             </div>
                         </div>
+                        <br>
                         <div id="input-vali"></div>
                         <br>
                         <button type="submit" class="btn btn-info">发表评论</button>
@@ -118,15 +119,16 @@
         var regName = /^[a-zA-Z]{1,20}|[\u4e00-\u9fa5]{1,10}$/;
         var regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if ($.trim($("#leave-comment textarea").val()) == ""){
-            $("#input-vali").attr("style","color: red").text("评论内容不能为空");
+            $("#input-vali").addClass("alert alert-danger").text("评论内容不能为空");
             return false
         } else if (!regName.test($.trim($("#input-name").val()))) {
-            $("#input-vali").attr("style","color: red").text("昵称格式不正确，请重新输入");
+            $("#input-vali").addClass("alert alert-danger").text("昵称格式不正确，请重新输入");
             return false
         } else if (!regEmail.test($.trim($("#input-email").val()))) {
-            $("#input-vali").attr("style","color: red").text("邮箱格式不正确，请重新输入");
+            $("#input-vali").addClass("alert alert-danger").text("邮箱格式不正确，请重新输入");
             return false
         } else {
+            $("#input-vali").removeClass("alert alert-danger");
             $("#input-vali").empty();
         }
 

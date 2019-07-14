@@ -1,6 +1,6 @@
 package com.ray.myblog.dto;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 
@@ -12,13 +12,13 @@ public class CommentDto {
     //commentInfo
     private Long id;
 
-    @NotNull
+    @NotBlank(message = "内容不能为空")
     private String content;
 
-    @Pattern(regexp = "/^[a-zA-Z]{1,20}|[\\u4e00-\\u9fa5]{1,10}$/")
+    @NotBlank(message = "昵称不对")
     private String name;
 
-    @Pattern(regexp = "/^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$/")
+    @Pattern(regexp = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$", message = "邮箱不对")
     private String email;
     private String ip;
     private Boolean isEffective;
@@ -109,5 +109,21 @@ public class CommentDto {
 
     public void setRelationId(Long relationId) {
         this.relationId = relationId;
+    }
+
+    @Override
+    public String toString() {
+        return "CommentDto{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", ip='" + ip + '\'' +
+                ", isEffective=" + isEffective +
+                ", created=" + created +
+                ", articleId=" + articleId +
+                ", articleTitle='" + articleTitle + '\'' +
+                ", relationId=" + relationId +
+                '}';
     }
 }

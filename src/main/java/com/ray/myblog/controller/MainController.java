@@ -3,6 +3,7 @@ package com.ray.myblog.controller;
 import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dto.ArticleDto;
 import com.ray.myblog.dto.CommentDto;
+import com.ray.myblog.entity.ArticleInfo;
 import com.ray.myblog.service.ArticleService;
 import com.ray.myblog.service.CategoryService;
 import com.ray.myblog.service.CommentService;
@@ -10,9 +11,12 @@ import com.ray.myblog.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 /**
  * 前端
@@ -31,6 +35,7 @@ public class MainController {
 
     @Autowired
     CommentService commentService;
+
     /**
      * 首页
      * @param model
@@ -54,6 +59,10 @@ public class MainController {
     public String articlePage(@PathVariable Long id, Model model){
         ArticleDto articleDto = articleService.getOneById(id);
         model.addAttribute("article", articleDto);
+        ArticleInfo articleInfo = new ArticleInfo();
+        articleInfo.setId(articleDto.getId());
+        articleInfo.setViewTimes(articleDto.getViewTimes()+1);
+        articleService.increaseViewTimes(articleInfo);
         return "pages/article";
     }
 
@@ -105,20 +114,35 @@ public class MainController {
     @RequestMapping("/list-comment/{articleId}/{pageNum}")
     public PageInfo listComment(@PathVariable("articleId") Long articleId,
                                 @PathVariable("pageNum") Integer pageNum){
-        PageInfo pageInfo = commentService.list(articleId, pageNum, 5);
+        PageInfo pageInfo = commentService.listByArticle(articleId, pageNum, 5);
         return pageInfo;
     }
 
 
-    @RequestMapping("/add-comment/{pageNum}")
-    public String addComment(CommentDto commentDto,
+    /**
+     * 添加评论
+     * @param commentDto
+     * @param pageNum
+     * @param request
+     * @return
+     */
+
+    @PostMapping("/add-comment/{pageNum}")
+    public String addComment(@Valid CommentDto commentDto, BindingResult result,
                              @PathVariable("pageNum") Integer pageNum,
                              HttpServletRequest request){
-        String ipAddress = IpUtil.getIpAddr(request);
-        commentDto.setIp(ipAddress);
-        commentService.addComment(commentDto);
-
+        System.out.println(commentDto);
+        if (result.hasErrors()){
+            for (ObjectError error : result.getAllErrors()) {
+                System.out.println(error.getDefaultMessage());
+            }
+        } else {
+            String ipAddress = IpUtil.getIpAddr(request);
+            commentDto.setIp(ipAddress);
+            commentService.addComment(commentDto);
+        }
         Long articleId = commentDto.getArticleId();
         return "forward:/list-comment/"+articleId+"/"+pageNum;
+
     }
 }
