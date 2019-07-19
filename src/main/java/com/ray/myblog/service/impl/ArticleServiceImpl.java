@@ -37,6 +37,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Resource
     ArticleCategoryMapper articleCategoryMapper;
 
+    @Resource
+    ArticleCommentMapper articleCommentMapper;
+
+    @Resource
+    CommentInfoMapper commentInfoMapper;
+
 
     @Override
     @Transactional
@@ -171,6 +177,14 @@ public class ArticleServiceImpl implements ArticleService {
         example2.or().andArticleIdEqualTo(id);
         List<ArticleCategory> articleCategories = articleCategoryMapper.selectByExample(example2);
         Long relationId = articleCategories.get(0).getId();
+        //删除对应评论
+        ArticleCommentExample example3 = new ArticleCommentExample();
+        example3.or().andArticleIdEqualTo(id);
+        List<ArticleComment> articleComments = articleCommentMapper.selectByExample(example3);
+        for (int i = 0; i <articleComments.size(); i++){
+            commentInfoMapper.deleteByPrimaryKey(articleComments.get(i).getCommentId());
+            articleCommentMapper.deleteByPrimaryKey(articleComments.get(i).getId());
+        }
 
         articleInfoMapper.deleteByPrimaryKey(id);
         articleContentMapper.deleteByPrimaryKey(contentId);

@@ -50,7 +50,7 @@
                 </section>
                 <div class="text-center">
                     <a th:href="@{/(pageNum=${pageInfo.pageNum}-1)}" th:class="${pageInfo.pageNum==1}?'btn btn-light disabled':'btn btn-light'">上一页</a>
-                    <a th:href="@{/(pageNum=${pageInfo.pageNum}+1)}" th:class="${pageInfo.pageNum==pageInfo.pages}?'btn btn-light disabled':'btn btn-light'">下一页</a>
+                    <a th:href="@{/(pageNum=${pageInfo.pageNum}+1)}" th:class="${pageInfo.pageNum==pageInfo.pages || pageInfo.pages == 0}?'btn btn-light disabled':'btn btn-light'">下一页</a>
                 </div>
                 <br>
 

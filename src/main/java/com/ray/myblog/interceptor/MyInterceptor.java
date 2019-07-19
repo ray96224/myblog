@@ -16,7 +16,7 @@ public class MyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         String user = (String)session.getAttribute("user");
-        System.out.println(user);
+//        System.out.println(user);
         if (!"wl5944".equals(user)){
             response.sendRedirect(request.getContextPath()+"/back/login-page");
             return true;
