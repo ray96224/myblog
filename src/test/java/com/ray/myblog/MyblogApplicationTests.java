@@ -1,13 +1,6 @@
 package com.ray.myblog;
 
-import com.github.pagehelper.PageInfo;
 import com.ray.myblog.dao.SystemVisitMapper;
-import com.ray.myblog.dto.ArticleDto;
-import com.ray.myblog.dto.ArticleSimpleDto;
-import com.ray.myblog.dto.CommentDto;
-import com.ray.myblog.entity.CategoryInfo;
-import com.ray.myblog.entity.CommentInfo;
-import com.ray.myblog.entity.SystemVisit;
 import com.ray.myblog.service.ArticleService;
 import com.ray.myblog.service.CategoryService;
 import com.ray.myblog.service.CommentService;
@@ -18,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.RandomAccess;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

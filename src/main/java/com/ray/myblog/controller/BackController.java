@@ -218,6 +218,11 @@ public class BackController {
         }
     }
 
+    /**
+     * 注销登录
+     * @param request
+     * @return
+     */
     @RequestMapping("/back/logout")
     public String logout(HttpServletRequest request){
         HttpSession session = request.getSession();
